@@ -1,0 +1,19 @@
+language: android
+env:
+  matrix:
+    - ANDROID_TARGET=android-19  ANDROID_ABI=armeabi-v7a
+android:
+  components:
+    - build-tools-19.1.0
+    - android-19
+    - sysimg-19
+    - extra-android-support
+    - extra-google-m2repository
+    - extra-android-m2repository
+  licenses:
+    - android-sdk-license-bcbbd656
+    - '.*intel.+'
+before_script:
+  - echo no | android create avd --force -n test -d 3 -t $ANDROID_TARGET --abi $ANDROID_ABI
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - ./wait_for_emulator
