@@ -1,4 +1,5 @@
 apply plugin: 'android'
+apply plugin: 'coveralls'
 
 android {
     compileSdkVersion 19
