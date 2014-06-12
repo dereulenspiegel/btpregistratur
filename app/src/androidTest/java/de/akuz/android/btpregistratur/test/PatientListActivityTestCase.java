@@ -92,17 +92,17 @@ public class PatientListActivityTestCase extends ActivityInstrumentationTestCase
 
     public void testBackstackHandling() throws Exception {
         before();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             enterAndSavePatientData("Perry" + i, "Rhodan" + i, "Stardusttower " + i, "Kommentar Nummer " + i, "01.01.198" + i);
         }
-        onData(allOf(is(instanceOf(Card.class)))).atPosition(9).check(matches(isDisplayed()));
+        onData(allOf(is(instanceOf(Card.class)))).atPosition(4).check(matches(isDisplayed()));
         onData(allOf(is(instanceOf(Card.class)))).atPosition(0).perform(click());
         assertPatientDataIsShown("Perry0","Rhodan0","Stardusttower 0","Kommentar Nummer 0","01.01.1980");
 
         Espresso.pressBack();
         onView(withId(R.id.firstName)).check(matches(isDisplayed()));
 
-        onData(allOf(is(instanceOf(Card.class)))).atPosition(1).perform(click());
+        onData(allOf(is(instanceOf(Card.class)))).atPosition(2).perform(click());
         assertPatientDataIsShown("Perry2","Rhodan2","Stardusttower 2","Kommentar Nummer 2","01.01.1982");
     }
 
