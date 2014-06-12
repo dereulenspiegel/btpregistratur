@@ -1,4 +1,4 @@
-BTP Registratur
+BTP Registratur [![Build Status](https://travis-ci.org/dereulenspiegel/btpregistratur.svg?branch=master)](https://travis-ci.org/dereulenspiegel/btpregistratur)
 ===============
 
 Einleitung
