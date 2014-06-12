@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/listContainer"
+            android:minWidth="@dimen/patient_list_min_width"
+            android:layout_weight="0.5">
+
+            <fragment
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:minWidth="250dp"
+                android:name="de.akuz.android.btpregistratur.app.patientlist.PatientDataListFragment"
+                android:id="@+id/listFragment"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="false"
+                tools:layout="@layout/fragment_patient_list"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@+id/detailsFragment" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/detailContainer"
+            android:layout_toRightOf="@+id/listContainer"
+            android:minWidth="300dp"
+            android:layout_weight="0.17"
+            android:visibility="visible">
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

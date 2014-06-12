@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="patient_input_default_marging">10dp</dimen>
+    <integer name="comment_line_count">5</integer>
+    <integer name="small_edit_text_size">20</integer>
+    <integer name="large_edit_text_size">40</integer>
+</resources>

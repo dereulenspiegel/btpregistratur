@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BTPRegistratur</string>
+    <string name="title_patient_detail">Patient Detail</string>
+    <string name="first_name">Vorname</string>
+    <string name="last_name">Nachname</string>
+    <string name="street_address">Strasse und Hausnummer</string>
+    <string name="birthday">Geburtstag</string>
+    <string name="arrival">BTP Ankunft</string>
+    <string name="leave_time">BTP verlassen</string>
+    <string name="save">Speichern</string>
+    <string name="error_saving_patient_data">Fehler beim Speichern der Daten</string>
+    <string name="patient_data_saved">Patientendaten gespeichert</string>
+    <string name="comment">Kommentar</string>
+    <string name="add_patient">Patienten erfassen</string>
+
+</resources>
