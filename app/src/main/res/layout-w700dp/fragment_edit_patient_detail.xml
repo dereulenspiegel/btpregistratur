@@ -118,4 +118,12 @@
         android:layout_alignParentRight="true"
         android:lines="@integer/comment_line_count"
         android:gravity="top"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_form"
+        android:id="@+id/clearButton"
+        android:layout_alignTop="@+id/saveButton"
+        android:layout_alignParentLeft="true"/>
 </RelativeLayout>

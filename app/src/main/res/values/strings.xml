@@ -14,5 +14,6 @@
     <string name="patient_data_saved">Patientendaten gespeichert</string>
     <string name="comment">Kommentar</string>
     <string name="add_patient">Patienten erfassen</string>
+    <string name="clear_form">Alle Eingaben löschen</string>
 
 </resources>

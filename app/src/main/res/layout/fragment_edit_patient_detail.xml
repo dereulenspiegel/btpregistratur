@@ -121,4 +121,12 @@
         android:id="@+id/cardDetailStreetAddress"
         android:layout_below="@+id/birthday"
         android:layout_alignLeft="@+id/birthday"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_form"
+        android:id="@+id/clearButton"
+        android:layout_alignBottom="@+id/saveButton"
+        android:layout_alignParentLeft="true"/>
 </RelativeLayout>

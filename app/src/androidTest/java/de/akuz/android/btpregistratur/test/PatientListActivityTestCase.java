@@ -106,6 +106,24 @@ public class PatientListActivityTestCase extends ActivityInstrumentationTestCase
         assertPatientDataIsShown("Perry2","Rhodan2","Stardusttower 2","Kommentar Nummer 2","01.01.1982");
     }
 
+    public void testClearFormData() throws Exception {
+        before();
+        enterPatientData("Perry", "Rhodan", "Stardusttower 1", "Kommentar", "01.01.1980");
+        onView(withId(R.id.firstName)).check(matches(withText("Perry")));
+        onView(withId(R.id.lastName)).check(matches(withText("Rhodan")));
+        onView(withId(R.id.editStreetAddress)).check(matches(withText("Stardusttower 1")));
+        onView(withId(R.id.editComment)).check(matches(withText("Kommentar")));
+        onView(withId(R.id.birthday)).check(matches(withText("01.01.1980")));
+
+        onView(withId(R.id.clearButton)).perform(click());
+
+        onView(withId(R.id.firstName)).check(matches(withText("")));
+        onView(withId(R.id.lastName)).check(matches(withText("")));
+        onView(withId(R.id.editStreetAddress)).check(matches(withText("")));
+        onView(withId(R.id.editComment)).check(matches(withText("")));
+        onView(withId(R.id.birthday)).check(matches(withText("")));
+    }
+
     private void assertPatientDataIsShown(String firstName, String lastName, String street, String comment, String birthday){
         onView(withId(R.id.cardDetailStreetAddress)).check(matches(withText(street)));
         onView(withId(R.id.cardDetailComment)).check(matches(withText(comment)));
@@ -113,12 +131,17 @@ public class PatientListActivityTestCase extends ActivityInstrumentationTestCase
     }
 
     private void enterAndSavePatientData(String firstName, String lastName, String street, String comment, String birthday) {
+        enterPatientData(firstName,lastName,street,comment,birthday);
+        onView(withId(R.id.saveButton)).perform(click());
+    }
+
+    private void enterPatientData(String firstName, String lastName, String street, String comment, String birthday) {
         onView(withId(R.id.firstName)).perform(typeText(firstName));
         onView(withId(R.id.lastName)).perform(typeText(lastName));
         onView(withId(R.id.editStreetAddress)).perform(typeText(street));
         onView(withId(R.id.editComment)).perform(typeText(comment));
         onView(withId(R.id.birthday)).perform(typeText(birthday));
-        onView(withId(R.id.saveButton)).perform(click());
+
     }
 
     private void assertRowCount(String tableName, int expectedCount) {

@@ -112,7 +112,8 @@ public class EditPatientDetailFragment extends BaseFragment {
         }
     }
 
-    private void clearFormAndModel() {
+    @OnClick(R.id.clearButton)
+    public void clearFormAndModel() {
         for (EditText view : editableFormViews) {
             view.setText("");
         }
