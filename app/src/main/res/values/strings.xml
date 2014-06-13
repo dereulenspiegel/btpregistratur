@@ -15,5 +15,6 @@
     <string name="comment">Kommentar</string>
     <string name="add_patient">Patienten erfassen</string>
     <string name="clear_form">Alle Eingaben löschen</string>
+    <string name="firstname_lastname">Vorname Nachname</string>
 
 </resources>

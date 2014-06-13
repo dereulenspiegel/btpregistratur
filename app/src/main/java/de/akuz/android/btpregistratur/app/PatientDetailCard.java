@@ -45,11 +45,14 @@ public class PatientDetailCard extends Card {
     @InjectView(R.id.cardDetailComment)
     TextView comment;
 
+    @InjectView(R.id.cardDetailFirstNameLastName)
+    TextView firstNameLastName;
+
     private boolean viewSetup = false;
 
     @Inject
-    public PatientDetailCard(Context ctx){
-        super(ctx,R.layout.card_patient_detail);
+    public PatientDetailCard(Context ctx) {
+        super(ctx, R.layout.card_patient_detail);
     }
 
     public PatientDetailCard(Context context, Patient patient) {
@@ -71,20 +74,21 @@ public class PatientDetailCard extends Card {
         ButterKnife.inject(this, view);
         viewSetup = true;
 
-        if(patient != null){
+        if (patient != null) {
             setPatient(patient);
         }
     }
 
-    public void setPatient(Patient patient){
+    public void setPatient(Patient patient) {
         this.patient = patient;
         bindPatientToView();
     }
 
-    private void bindPatientToView(){
-        if(!viewSetup){
+    private void bindPatientToView() {
+        if (!viewSetup) {
             return;
         }
+        firstNameLastName.setText(patient.getFirstName() + " " + patient.getLastName());
         streetAddress.setText(patient.getStreetAddress());
         if (patient.getBirthday() != null) {
             birthday.setText(birthdayFormat.format(patient.getBirthday()));

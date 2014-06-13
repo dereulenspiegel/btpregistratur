@@ -128,6 +128,7 @@ public class PatientListActivityTestCase extends ActivityInstrumentationTestCase
         onView(withId(R.id.cardDetailStreetAddress)).check(matches(withText(street)));
         onView(withId(R.id.cardDetailComment)).check(matches(withText(comment)));
         onView(withId(R.id.cardDetailBirthday)).check(matches(withText(birthday)));
+        onView(withId(R.id.cardDetailFirstNameLastName)).check(matches(withText(firstName+" "+lastName)));
     }
 
     private void enterAndSavePatientData(String firstName, String lastName, String street, String comment, String birthday) {

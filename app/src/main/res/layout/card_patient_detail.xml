@@ -12,9 +12,12 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/street_address"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cardDetailFirstNameLastName"
+        android:layout_alignLeft="@+id/cardDetailFirstNameLastName"
+        android:layout_marginTop="@dimen/patient_input_default_marging"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -106,5 +109,25 @@
         android:layout_alignRight="@+id/cardDetailLeaveTime"
         android:layout_alignEnd="@+id/cardDetailLeaveTime"
         android:minLines="@integer/comment_line_count"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/firstname_lastname"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/cardDetailFirstNameLastName"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"/>
 
 </RelativeLayout>
