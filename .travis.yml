@@ -16,7 +16,8 @@ android:
     - '.*intel.+'
 before_script:
   - echo no | android create avd --force -n test -d 3 -t $ANDROID_TARGET --abi $ANDROID_ABI
-  - emulator -avd test -no-skin -no-audio -no-window &
+  - mksdcard -l testCard 1024M sdCard.img
+  - emulator -avd test -no-skin -no-audio -no-window -sdcard sdCard.img &
   - chmod a+x ./wait_for_emulator.sh
   - chmod a+x ./gradlew
   - ./wait_for_emulator.sh
