@@ -18,8 +18,8 @@ import de.akuz.android.btpregistratur.app.BaseActivity;
 import de.akuz.android.btpregistratur.app.EditPatientDetailFragment;
 import de.akuz.android.btpregistratur.app.PatientDetailFragment;
 import de.akuz.android.btpregistratur.app.R;
+import de.akuz.android.btpregistratur.app.data.DataStore;
 import de.akuz.android.btpregistratur.dao.Patient;
-import de.akuz.android.btpregistratur.dao.PatientDao;
 
 /**
  * Created by till on 04.06.14.
@@ -39,7 +39,7 @@ public class ListPatientDataActivity extends BaseActivity
     FragmentManager fragmentManager;
 
     @Inject
-    PatientDao patientDao;
+    DataStore dataStore;
 
     @InjectView(R.id.detailContainer)
     @Optional
@@ -68,7 +68,7 @@ public class ListPatientDataActivity extends BaseActivity
     @Override
     public void showPatientDetail(long patientId) {
         if (detailContainer != null) {
-            Patient patient =  patientDao.queryBuilder().where(PatientDao.Properties.Id.eq(patientId)).unique();
+            Patient patient =  dataStore.findPatientById(patientId);
             detailFragment = showFragment(detailFragment);
             detailFragment.setPatient(patient);
         } else {

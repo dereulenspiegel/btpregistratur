@@ -9,6 +9,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import de.akuz.android.btpregistratur.app.data.DataStore;
+import de.akuz.android.btpregistratur.app.data.GreenDAODataStore;
 import de.akuz.android.btpregistratur.dao.DaoMaster;
 import de.akuz.android.btpregistratur.dao.DaoSession;
 import de.akuz.android.btpregistratur.dao.OperationDao;
@@ -74,5 +76,11 @@ public class MainModule {
     @DateFormat(DateFormats.DATE_AND_TIME)
     public SimpleDateFormat provideDateAndTimeFormat() {
         return new SimpleDateFormat("HH:mm dd.MM.yyyy");
+    }
+
+    @Provides
+    @Singleton
+    public DataStore provideDataStore(PatientDao patientDao) {
+        return new GreenDAODataStore(patientDao);
     }
 }

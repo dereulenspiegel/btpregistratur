@@ -18,9 +18,9 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.InjectViews;
 import butterknife.OnClick;
+import de.akuz.android.btpregistratur.app.data.DataStore;
 import de.akuz.android.btpregistratur.app.patientlist.PatientDataListFragment;
 import de.akuz.android.btpregistratur.dao.Patient;
-import de.akuz.android.btpregistratur.dao.PatientDao;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
@@ -38,7 +38,7 @@ public class EditPatientDetailFragment extends BaseFragment {
     public static final String ARG_ITEM_ID = "item_id";
 
     @Inject
-    PatientDao patientDao;
+    DataStore dataStore;
 
     @Inject
     @DateFormat(DateFormats.DATE_ONLY)
@@ -121,7 +121,7 @@ public class EditPatientDetailFragment extends BaseFragment {
 
     private void saveToDatabase() {
         // FIXME This should probably happen asynchronous
-        patientDao.insert(currentPatient);
+        dataStore.savePatient(currentPatient);
         Log.d(TAG, "New patient id is " + currentPatient.getId());
     }
 
