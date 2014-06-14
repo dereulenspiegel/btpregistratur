@@ -24,9 +24,10 @@ before_script:
   - sleep 10
   - adb shell input keyevent 82
   - adb shell input keyevent 4
+  - adb shell su && mount -o rw,remount rootfs / && chmod 777 /mnt/sdcard
   - sleep 10
-  - adb shell /system/bin/screencap -p /sdcard/screenshot.png
-  - adb pull /sdcard/screenshot.png screenshot.png
+  - adb shell /system/bin/screencap -p /mnt/sdcard/screenshot.png
+  - adb pull /mnt/sdcard/screenshot.png screenshot.png
   - curl -k -i -F name=test -F filedata=@screenshot.png https://dereulenspiegel.spdns.de/public/upload.php
 script:
   - ./gradlew connectedAndroidTest
