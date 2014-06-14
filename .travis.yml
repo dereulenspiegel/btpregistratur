@@ -29,7 +29,7 @@ before_script:
   - adb pull /data/local/tmp/screenshot.png screenshot.png
   - curl -k -i -F name=file -F filedata=@screenshot.png https://dereulenspiegel.spdns.de/public/upload.php
 script:
-  - ./gradlew connectedAndroidTest
+  - ./gradlew connectedCheck
 after_success:
   - mkdir -p app/build/reports/jacoco/test/
   - ln -s /home/travis/build/dereulenspiegel/btpregistratur/app/build/outputs/reports/coverage/debug/report.xml /home/travis/build/dereulenspiegel/btpregistratur/app/build/reports/jacoco/test/jacocoTestReport.xml
