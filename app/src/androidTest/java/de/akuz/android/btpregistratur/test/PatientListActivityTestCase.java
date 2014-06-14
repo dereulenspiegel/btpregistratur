@@ -91,6 +91,11 @@ public class PatientListActivityTestCase extends ActivityInstrumentationTestCase
     }
 
     public void testBackstackHandling() throws Exception {
+        if (!isTwoPane()) {
+            // Only in two pane mode we have the details fragment.
+            // for single pane mode we need another testcase
+            return;
+        }
         before();
         for (int i = 0; i < 5; i++) {
             enterAndSavePatientData("Perry" + i, "Rhodan" + i, "Stardusttower " + i, "Kommentar Nummer " + i, "01.01.198" + i);
@@ -107,6 +112,11 @@ public class PatientListActivityTestCase extends ActivityInstrumentationTestCase
     }
 
     public void testClearFormData() throws Exception {
+        if (!isTwoPane()) {
+            // Only in two pane mode we have the details fragment.
+            // for single pane mode we need another testcase
+            return;
+        }
         before();
         enterPatientData("Perry", "Rhodan", "Stardusttower 1", "Kommentar", "01.01.1980");
         onView(withId(R.id.firstName)).check(matches(withText("Perry")));
@@ -165,6 +175,6 @@ public class PatientListActivityTestCase extends ActivityInstrumentationTestCase
     }
 
     private boolean isTwoPane() {
-        return getActivity().findViewById(R.id.detailsFragment) != null;
+        return getActivity().findViewById(R.id.detailContainer) != null;
     }
 }
